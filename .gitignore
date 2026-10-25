@@ -6,3 +6,8 @@ node_modules/
 *.pem
 *.key
 .env
+
+__pycache__/
+*.pyc
+app/.buildResult/
+app/.sign/
