@@ -8,3 +8,59 @@
 .apps{flex-wrap:wrap}
 
 .section-heading{justify-content:flex-start}
+
+/* Designed panels: opaque surfaces, photo texture, remote-sized controls. */
+.scene{--photo-dim:.45}.shade{background:linear-gradient(180deg,rgba(4,12,16,.25),rgba(4,12,16,var(--photo-dim)) 62%,rgba(4,12,16,.88))}
+.no-motion .app{transition:none}
+#panel{background:rgba(7,17,21,.97);padding:5vh 6.2vw;overflow:auto}
+.panel-inner{max-width:1680px}.panel-head h2{font-size:40px;letter-spacing:-1px}
+.panel-head button{border:1px solid #4b5e5e;background:#203133}
+#panel-description{font-size:18px;color:#bac9c7;margin-top:0;margin-bottom:36px}
+#gallery.panel-body{display:block}
+.catalog-meta{font-size:15px;color:#aebfbd;margin-bottom:22px}
+.catalog-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.catalog-tile{position:relative;height:225px;border-radius:20px;background:#1a2b2f;border:1px solid #34494c;text-align:left;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+.catalog-tile:focus-visible{background:#304648}
+.catalog-logo{height:100px;display:flex;align-items:center;justify-content:center}
+.brand-icon{filter:brightness(0) invert(1);max-width:115px;max-height:65px}
+.brand-icon.netflix{max-height:75px}.brand-icon.youtube{max-width:85px}
+.initials{font-size:35px;font-weight:500;letter-spacing:-1.5px;color:#e3ece6}
+.catalog-name{font-size:20px}.favorite-badge{font-size:12px;color:#bfcec6}
+.example-label{color:#9eafb0;font-size:13px;margin-top:30px}
+.panel-notice{min-height:24px;color:#d8e6db;font-size:16px;margin-top:22px}
+.settings-shell{display:flex;gap:55px;align-items:flex-start}
+.settings-nav{width:265px;flex:none;display:flex;flex-direction:column;gap:10px}
+.settings-nav button{width:100%;display:block;text-align:left;border:1px solid transparent;background:transparent;font-size:18px;padding:20px;border-radius:13px}
+.settings-nav .active{background:#304547;border-color:#536963}
+.settings-content{min-width:0;flex:1}.settings-content h3{font-size:26px;font-weight:400;margin:0 0 12px}
+.setting-description{font-size:15px;color:#b6c6c4;margin:0 0 28px;line-height:1.7}
+.photo-setting{display:flex;flex-direction:column;gap:24px}.current-photo{width:370px;max-width:100%;position:relative;border-radius:16px;overflow:hidden;flex:none}
+.current-photo>img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.current-photo>span{position:absolute;bottom:0;left:0;right:0;background:rgba(7,17,21,.8);padding:13px;font-size:13px}
+.wallpaper-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.wallpaper-grid .photo-choice{min-width:0;background:#1c3034;border-color:transparent;padding:5px}
+.wallpaper-grid .photo-choice[aria-pressed=true]{border-color:#e3e8cd}
+.wallpaper-grid .photo-choice span{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.settings-content h4{font-size:18px;font-weight:500;margin:24px 0 18px}
+.choice-row{display:flex;gap:15px;margin-bottom:35px}
+.option,.secondary-action,.primary-action{background:#253b3f;border:1px solid #486160;border-radius:12px;padding:17px 24px;font-size:17px;text-align:left}
+.option[aria-pressed=true]{background:#dce6d9;color:#162c2d;border-color:#e9eee4}
+.setting-row{padding:28px 0;border-top:1px solid #31494b;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.setting-row strong{font-size:18px;font-weight:500}.setting-row span{display:block;font-size:14px;color:#adbfbc;margin-top:8px}
+.favorite-list{margin:20px 0 28px}.favorite-row{display:flex;gap:15px;align-items:center;padding:16px 0;border-bottom:1px solid #34494b}
+.order{color:#90aaa6;font-size:15px;width:35px}.favorite-title{font-size:20px;flex:1}
+.move,.hide-app{background:#263c40;border:1px solid #3c5556;border-radius:10px;padding:14px 18px;font-size:16px}
+button:disabled{opacity:.3;cursor:default}.hide-app{background:transparent;color:#cad7cf}
+.app-detail{display:flex;gap:65px;padding:55px 0}.detail-art{width:350px;height:240px;background:#21383d;display:flex;align-items:center;justify-content:center;border-radius:24px}
+.detail-art .brand-icon{max-height:100px;max-width:160px}
+.detail-actions{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.detail-actions h3{font-size:28px;font-weight:400;margin:0 0 6px}
+.primary-action{background:#e0e8d7;color:#162b2c;border-color:#e0e8d7}
+.detail-actions p{font-size:14px;color:#b2c1bb}
+@media(min-width:1700px){.photo-setting{flex-direction:row;align-items:flex-start}.wallpaper-grid{grid-template-columns:repeat(3,1fr);flex:1}.wallpaper-grid .photo-choice img{aspect-ratio:2/1}}
+@media(max-width:1100px){.settings-shell{gap:26px}.settings-nav{width:210px}.settings-nav button{font-size:15px;padding:16px}.catalog-grid{gap:15px}.catalog-tile{height:190px;padding:17px}.catalog-name{font-size:16px}.wallpaper-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.panel-head h2{font-size:28px}.panel-head button{font-size:13px;padding:12px}#panel-description{font-size:14px}.catalog-grid{grid-template-columns:repeat(3,1fr)}.catalog-tile{height:170px;padding:13px}.catalog-name{font-size:14px}.brand-icon{max-width:70px;max-height:55px}.settings-shell{display:block}.settings-nav{width:100%;flex-direction:row;flex-wrap:wrap;margin-bottom:25px}.settings-nav button{width:auto}.app-detail{gap:25px;flex-direction:column;padding:15px 0}.detail-art{max-width:100%;width:240px;height:160px}.favorite-row{gap:8px}.favorite-title{font-size:15px}.move,.hide-app{font-size:12px;padding:12px}.order{display:none}.choice-row{flex-wrap:wrap}}
+@media(max-width:420px){.catalog-grid{grid-template-columns:repeat(2,1fr)}.wallpaper-grid{grid-template-columns:repeat(2,1fr)}.favorite-row{flex-wrap:wrap}.favorite-title{min-width:100%}}
+
+#panel{background:#0c191c}#gallery .setting-description{font-size:15px}#gallery .example-label{font-size:13px}#gallery .panel-notice{font-size:16px}#gallery .detail-actions p{font-size:14px}
+@media(min-width:1700px){.current-photo{width:330px}.wallpaper-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.wallpaper-grid .photo-choice img{aspect-ratio:16/9}.wallpaper-grid .photo-choice span{font-size:11px}}
