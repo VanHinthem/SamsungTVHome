@@ -13,3 +13,5 @@ Ontwerpkeuzes om samen te bespreken:
 - Wel/geen titel Jouw avond.
 - Of HDMI alleen aangesloten bronnen toont, zoals de huidige app.
 - Instellingen is nu alleen een fotokiezer; de uiteindelijke instellingenindeling volgt later.
+
+Ontwerpupdate: kleinere tegels, maximaal vijf per rij op tv-formaat. Extra apps komen op een volgende rij. De eerste rij bevat nog de drie gekozen apps.
