@@ -1,0 +1,8 @@
+.local/
+dist/
+node_modules/
+*.wgt
+*.p12
+*.pem
+*.key
+.env
