@@ -60,3 +60,9 @@ test('unknown app can use its local icon after cache or as sole candidate',()=>{
  assert.deepEqual(m.artworkSources({id:'user.app',iconPath:'/opt/apps/user.png'}),['/opt/apps/user.png']);
  assert.deepEqual(m.artworkSources({id:'user.app',iconPath:'https://example.com/icon.png'}),[]);
 });
+
+test('HDMI names migrate safely and stay bounded to real ports',()=>{
+ assert.deepEqual(m.normalize({}).hdmiNames,{});
+ assert.deepEqual(m.normalize({hdmiNames:{1:'  PlayStation  ',2:'',3:42,4:'a'.repeat(40),5:'invalid'}}).hdmiNames,{1:'PlayStation',4:'a'.repeat(30)});
+ assert.equal(m.normalize({hdmiNames:{2:'Ziggo\u0000'}}).hdmiNames[2],'Ziggo');
+});

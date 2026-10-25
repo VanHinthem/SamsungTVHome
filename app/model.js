@@ -39,13 +39,14 @@
     if(local&&!app.icon&&result.indexOf(local)<0)result.push(local);
     return result;
   }
-  function defaults(){return {photo:'valley',favorites:known.map(function(a){return {id:a.id,name:a.name,icon:a.icon};}),dim:45,motion:true};}
+  function defaults(){return {photo:'valley',favorites:known.map(function(a){return {id:a.id,name:a.name,icon:a.icon};}),dim:45,motion:true,hdmiNames:{}};}
   function normalize(raw){
     var result=defaults();
     if(!raw||typeof raw!=='object')return result;
     if(photoIds.indexOf(raw.photo)>=0)result.photo=raw.photo;
     if([30,45,60].indexOf(raw.dim)>=0)result.dim=raw.dim;
     if(typeof raw.motion==='boolean')result.motion=raw.motion;
+    if(raw.hdmiNames&&typeof raw.hdmiNames==='object'){for(var port=1;port<=4;port++){var label=raw.hdmiNames[port];if(typeof label==='string'){label=label.replace(/[\x00-\x1f\x7f]/g,'').trim().slice(0,30);if(label)result.hdmiNames[port]=label;}}}
     if(Array.isArray(raw.favorites)){
       var seen=Object.create(null),valid=[];
       raw.favorites.forEach(function(a){
