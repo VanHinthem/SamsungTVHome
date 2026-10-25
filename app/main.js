@@ -2,8 +2,8 @@
 (function () {
   'use strict';
   var apps = [
-    {name: 'Netflix', key: 'netflix', id: 'RN1MCdNq8t.Netflix', match: /^netflix$/i},
-    {name: 'Prime Video', key: 'prime', match: /prime.?video|amazon.*video|amazon instant/i},
+    {name: 'Netflix', key: 'netflix', id: 'org.tizen.netflix-app', match: /^netflix$/i},
+    {name: 'Prime Video', key: 'prime', id: 'evKhCgZelL.AmazonIgnitionLauncher2', match: /prime.?video|amazon.*video|amazon instant/i},
     {name: 'YouTube', key: 'youtube', id: '9Ur5IzDKqV.TizenYouTube', match: /^youtube$/i},
     {name: 'HDMI', key: 'hdmi'}
   ];
@@ -41,6 +41,15 @@
   function launch(app) {
     if (!onTV) { message('Voorbeeld: ' + app.name + ' openen werkt op de tv.'); return; }
     busy = true;
+    if (app.id) {
+      message(app.name + ' openen…');
+      try {
+        tizen.application.launch(app.id, function () {
+          busy = false; message(app.name + ' geopend.');
+        }, fail);
+      } catch (error) { fail(error); }
+      return;
+    }
     message(app.name + ' zoeken…');
     try {
       tizen.application.getAppsInfo(function (installed) {
@@ -89,10 +98,12 @@
     busy = true;
     try {
       tizen.tvwindow.setSource(item.source, function () {
+        /* Hand the selected source to the native viewer instead of embedding it.
+           This must be verified on the QE75Q7FNA firmware. */
         try {
-          tizen.tvwindow.show(function () {
-            busy = false; mode = 'video'; document.body.className = 'video';
-          }, fail, ['0px', '0px', '100%', '100%'], 'MAIN', 'FRONT');
+          tizen.application.launch('org.tizen.tv-viewer', function () {
+            busy = false; home();
+          }, fail);
         } catch (error) { fail(error); }
       }, fail);
     } catch (error) { fail(error); }
