@@ -30,7 +30,8 @@
     }
     return result;
   }
-  function discover(installed){
+  function discover(installed, preferredIds){
+    preferredIds=preferredIds||[];
     var result=[],skip=Object.create(null),seen=Object.create(null);
     known.forEach(function(k){
       var present=installed.some(function(a){return a.id===k.id;});
@@ -41,12 +42,16 @@
       if(!a||typeof a.id!=='string'||typeof a.name!=='string'||skip[a.id]||seen[a.id]||a.show===false)return;
       var name=a.name.trim();
       if(!name||/^(app|service-application|ui-application)$/i.test(name))return;
+      if(/e-manual|privacy|teletext|ug-ttx|settings|emanual/i.test(name)||/^(ug-|ise-)/i.test(a.id))return;
       if(/youtube|netflix|test|demo|screensaver|installer|notification|widget|service/i.test(name))return;
       if(/^(org\.|com\.samsung\.|adplatform\.|lib-)/i.test(a.id)&&a.id!=='org.tizen.browser')return;
       if(a.id==='STVHome001.Home')return;
       seen[a.id]=true;
       result.push({id:a.id,name:name.slice(0,80),icon:null});
     });
+    var names=Object.create(null);
+    result.forEach(function(a){var key=a.name.toLowerCase().replace(/é/g,'e').replace(/[^a-z0-9]/g,'');var previous=names[key];if(!previous||preferredIds.indexOf(a.id)>=0&&preferredIds.indexOf(previous.id)<0)names[key]=a;});
+    result=Object.keys(names).map(function(key){return names[key];});
     result.sort(function(a,b){return a.name.toLowerCase().localeCompare(b.name.toLowerCase());});
     return result;
   }

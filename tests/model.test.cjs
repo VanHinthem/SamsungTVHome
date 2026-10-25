@@ -30,3 +30,8 @@ test('favorite persistence has a bounded valid length',()=>{
  const p=m.normalize({favorites:Array.from({length:45},(_,i)=>({id:'user.'+i,name:'App '+i}))});
  assert.equal(p.favorites.length,30);
 });
+
+test('TV utilities excluded and duplicate service keeps the favorite ID',()=>{
+ const apps=m.discover([{id:'OjBS9h5ZF9.emanual',name:'e-Manual'},{id:'jLU2jKvbyN.PrivacyChoices',name:'PrivacyChoices'},{id:'w2VwCK465D.OTApp',name:'Samsung TV Plus Privacy Settings'},{id:'ug-ttxUG-efl',name:'ug-ttxUG-efl'},{id:'old.Pathe',name:'Pathe Thuis'},{id:'new.Pathe',name:'Pathé Thuis'}],['old.Pathe']);
+ assert.deepEqual(apps.map(a=>a.id),['old.Pathe']);
+});

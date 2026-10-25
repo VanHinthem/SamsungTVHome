@@ -59,7 +59,7 @@ function refreshCatalog(){
  if(!onTV){catalog=prefs.favorites.map(byId);if(state.view==='apps')renderPanel();return;}
  if(Date.now()-catalogAt<60000)return;
  try{tizen.application.getAppsInfo(function(installed){
-  catalog=model.discover(installed);catalogAt=Date.now();
+  catalog=model.discover(installed,prefs.favorites);catalogAt=Date.now();
   catalog.forEach(function(a){savedApps[a.id]=a;});
   if(state.view==='apps'&&!panel.hidden)renderPanel();
  },function(e){catalogAt=0;tell('Apps ophalen niet gelukt. Sluit en open Alle apps om opnieuw te proberen.');});}
