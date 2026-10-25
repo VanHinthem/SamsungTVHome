@@ -66,3 +66,5 @@ test('HDMI names migrate safely and stay bounded to real ports',()=>{
  assert.deepEqual(m.normalize({hdmiNames:{1:'  PlayStation  ',2:'',3:42,4:'a'.repeat(40),5:'invalid'}}).hdmiNames,{1:'PlayStation',4:'a'.repeat(30)});
  assert.equal(m.normalize({hdmiNames:{2:'Ziggo\u0000'}}).hdmiNames[2],'Ziggo');
 });
+
+test('photo rotation defaults to fixed and accepts only supported choices',()=>{assert.equal(m.normalize({}).rotation,0);for(const mode of [0,'start',5,15,60])assert.equal(m.normalize({rotation:mode}).rotation,mode);for(const mode of ['5',true,-1,2,null])assert.equal(m.normalize({rotation:mode}).rotation,0);});

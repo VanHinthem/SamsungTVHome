@@ -80,3 +80,5 @@ button:disabled{opacity:.3;cursor:default}.hide-app{background:transparent;color
 .logo img.samsung-artwork,.catalog-logo img.samsung-artwork,.detail-art img.samsung-artwork{width:166px;height:94px;max-width:166px;max-height:94px;border-radius:7px}
 
 .app.moving{box-shadow:0 0 0 5px #e5c878;transform:scale(1.04)}.settings-content input{background:#182e32;color:#fff;border:1px solid #648180;border-radius:10px;padding:16px;font:inherit;width:310px}.settings-content input:focus{outline:3px solid #eee9da}.setting-row label{min-width:100px}
+
+.rotation-choices{flex-wrap:wrap;margin-bottom:22px}.rotation-choices button{margin-bottom:12px;font-size:15px;padding:14px 17px}
