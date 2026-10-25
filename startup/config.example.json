@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "host": "",
+  "tizen_cli": "C:\\tizen-studio\\tools\\ide\\bin\\tizen.bat",
+  "poll_seconds": 5,
+  "offline_samples": 6,
+  "online_samples": 3,
+  "settle_seconds": 20
+}
