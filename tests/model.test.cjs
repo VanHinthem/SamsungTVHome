@@ -47,3 +47,16 @@ test('store alias can supply artwork while native Netflix remains launch target'
 test('icon sources cannot trigger remote downloads or script URLs',()=>{
  for(const path of ['https://example.com/icon.png','//example.com/icon.png','javascript:alert(1)','data:image/png;base64,AAAA',null])assert.equal(m.iconPath(path),null);
 });
+
+test('Samsung artwork uses store IDs verified on the 2018 firmware',()=>{
+ assert.equal(m.artworkSources({id:'org.tizen.netflix-app',icon:'netflix'})[0],'/opt/share/webappservice/apps_icon/FirstScreen/11101200001/250x250.png');
+ assert.equal(m.artworkSources({id:'evKhCgZelL.AmazonIgnitionLauncher2',icon:'primevideo'})[0],'/opt/share/webappservice/apps_icon/FirstScreen/3201512006785/250x250.png');
+});
+test('Samsung cache candidates exclude generic packaged streaming icons',()=>{
+ const paths=m.artworkSources({id:'9Ur5IzDKqV.TizenYouTube',icon:'youtube',iconPath:'/opt/apps/generic-tizen.png'});
+ assert.equal(paths.length,3);assert.equal(paths[1],'/opt/share/webappservice/apps_icon/Panel/111299001912/250x250.png');assert.equal(paths.includes('/opt/apps/generic-tizen.png'),false);
+});
+test('unknown app can use its local icon after cache or as sole candidate',()=>{
+ assert.deepEqual(m.artworkSources({id:'user.app',iconPath:'/opt/apps/user.png'}),['/opt/apps/user.png']);
+ assert.deepEqual(m.artworkSources({id:'user.app',iconPath:'https://example.com/icon.png'}),[]);
+});

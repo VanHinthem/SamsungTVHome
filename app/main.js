@@ -29,8 +29,9 @@ function mark(app){
  var holder=document.createElement('span');holder.className='artwork';
  var fallback;if(app.icon){fallback=document.createElement('img');fallback.src=base+'icons/'+app.icon+'.svg';fallback.alt='';fallback.className='brand-icon '+app.icon;}else{fallback=document.createElement('span');fallback.className='initials';fallback.textContent=app.name.slice(0,3).toUpperCase();}
  holder.appendChild(fallback);
- var path=model.iconPath(app.iconPath);
- if(path){var native=document.createElement('img');native.alt='';native.className='brand-icon native-icon';native.onload=function(){holder.textContent='';holder.appendChild(native);};native.onerror=function(){/* Keep the bundled mark or initials. */};native.src=path.charAt(0)==='/'?'file://'+path:path;}
+ var candidates=model.artworkSources(app),index=0;
+ function tryNext(){if(index>=candidates.length)return;var path=candidates[index++],native=document.createElement('img');native.alt='';native.className='brand-icon native-icon samsung-artwork';native.onload=function(){holder.textContent='';holder.appendChild(native);};native.onerror=tryNext;native.src=path.charAt(0)==='/'?'file://'+path:path;}
+ tryNext();
  return holder;
 }
 function renderHome(){var row=document.querySelector('.apps');row.textContent='';prefs.favorites.forEach(function(id,i){var a=byId(id),b=button('',function(){launchApp(a.id,a.name);lastHomeId=a.id;},'app');b.setAttribute('aria-label',a.name);b.disabled=!panel.hidden;var logo=document.createElement('span');logo.className='logo';logo.appendChild(mark(a));var bottom=document.createElement('span');bottom.className='app-bottom';bottom.textContent=a.name;b.appendChild(logo);b.appendChild(bottom);row.appendChild(b);});}

@@ -17,6 +17,28 @@
     if(/^file:\/\/\//i.test(value)||/^wgt-package:\/\//i.test(value))return value;
     return null;
   }
+
+  /* Store identities read from this model's vd_applist; not launch IDs. */
+  var artworkStores={
+    'org.tizen.netflix-app':'11101200001','RN1MCdNq8t.Netflix':'11101200001',
+    'evKhCgZelL.AmazonIgnitionLauncher2':'3201512006785',
+    '9Ur5IzDKqV.TizenYouTube':'111299001912',
+    '0yc8StEOG6.PatheThuis':'3201506003175','xf4VNjoz7A.SmartTVNextGen':'3202207027987',
+    'rJeHak5zRg.Spotify':'3201606009684','iquaePhaki.npostart':'3202309032263',
+    'org.tizen.browser':'webbrowser'
+  };
+  function artworkSources(app){
+    var result=[],cached=(app.iconPath||'').match(/^\/opt\/share\/webappservice\/apps_icon\/(?:Panel|FirstScreen|all)\/([a-zA-Z0-9]+)\//);
+    var store=artworkStores[app.id]||(cached&&cached[1]);
+    if(store){
+      result.push('/opt/share/webappservice/apps_icon/FirstScreen/'+store+'/250x250.png');
+      result.push('/opt/share/webappservice/apps_icon/Panel/'+store+'/250x250.png');
+      result.push('/opt/share/webappservice/apps_icon/all/'+store+'/304x304.png');
+    }
+    var local=iconPath(app.iconPath);
+    if(local&&!app.icon&&result.indexOf(local)<0)result.push(local);
+    return result;
+  }
   function defaults(){return {photo:'valley',favorites:known.map(function(a){return {id:a.id,name:a.name,icon:a.icon};}),dim:45,motion:true};}
   function normalize(raw){
     var result=defaults();
@@ -73,5 +95,5 @@
     if(index<0||index>=result.length||next<0||next>=result.length)return result;
     var item=result[index];result[index]=result[next];result[next]=item;return result;
   }
-  return {iconPath:iconPath,known:known,defaults:defaults,normalize:normalize,discover:discover,hdmi:hdmi,move:move};
+  return {artworkSources:artworkSources,iconPath:iconPath,known:known,defaults:defaults,normalize:normalize,discover:discover,hdmi:hdmi,move:move};
 }));

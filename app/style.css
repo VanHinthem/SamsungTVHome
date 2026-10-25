@@ -76,3 +76,5 @@ button:disabled{opacity:.3;cursor:default}.hide-app{background:transparent;color
 
 /* Prefer original installed artwork in its original colors. */
 .artwork{display:block;position:relative;width:100%;height:100%}.logo>.artwork,.catalog-logo>.artwork,.detail-art>.artwork{position:absolute;top:0;left:0;width:100%;height:100%}.logo img.native-icon,.catalog-logo img.native-icon,.detail-art img.native-icon{filter:none;width:118px;height:88px;max-width:118px;max-height:88px;object-fit:contain;border-radius:10px}
+
+.logo img.samsung-artwork,.catalog-logo img.samsung-artwork,.detail-art img.samsung-artwork{width:166px;height:94px;max-width:166px;max-height:94px;border-radius:7px}
