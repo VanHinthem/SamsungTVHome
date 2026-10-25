@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="https://local.samsungtvhome/app" version="0.1.0" viewmodes="maximized">
+<tizen:application id="STVHome001.Home" package="STVHome001" required_version="4.0"/>
+<content src="index.html"/><name>SamsungTVHome</name>
+<tizen:profile name="tv-samsung"/>
+<tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+<tizen:privilege name="http://tizen.org/privilege/application.info"/>
+<tizen:privilege name="http://tizen.org/privilege/tv.window"/>
+<tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" install-location="auto" hwkey-event="enable"/>
+</widget>
