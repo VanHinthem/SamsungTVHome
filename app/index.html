@@ -1,3 +1,24 @@
 <!doctype html>
-<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SamsungTVHome</title><link rel="stylesheet" href="style.css"></head>
-<body><main id="home"><header><span>SAMSUNG TV HOME</span><time id="clock"></time></header><h1>Wat wil je kijken?</h1><p class="intro">Jouw apps. Jouw avond.</p><nav id="tiles" aria-label="Apps en ingangen"></nav><p id="status" role="status" aria-live="polite"></p><footer>← → kiezen &nbsp; OK openen &nbsp; Terug sluiten</footer></main><script src="main.js"></script></body></html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SamsungTVHome</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="scene" id="scene">
+<img class="wallpaper" id="wallpaper" src="vendor/cleanframe/app/assets/wallpapers/valley.jpg" alt="">
+<div class="shade"></div>
+<main>
+<header><div class="time"><time id="clock"></time><span id="date"></span></div><nav aria-label="Hulpmiddelen"><button data-panel="apps"><img src="vendor/cleanframe/app/assets/icons/apps.svg" alt="">Alle apps</button><button data-panel="settings"><img src="vendor/cleanframe/app/assets/icons/settings.svg" alt="">Instellingen</button></nav></header>
+<div class="content">
+<div class="section-heading"><span>APPS</span></div>
+<div class="apps" aria-label="Favoriete apps">
+<button class="app selected" data-app="Netflix"><span class="logo"><img class="netflix" src="vendor/cleanframe/app/assets/icons/netflix.svg" alt=""></span><span class="app-bottom"><span>Netflix</span><span class="open">Openen ↗</span></span></button>
+<button class="app" data-app="Prime Video"><span class="logo"><img class="prime" src="vendor/cleanframe/app/assets/icons/primevideo.svg" alt=""></span><span class="app-bottom"><span>Prime Video</span><span class="open">Openen ↗</span></span></button>
+<button class="app" data-app="YouTube"><span class="logo"><img class="youtube" src="vendor/cleanframe/app/assets/icons/youtube.svg" alt=""></span><span class="app-bottom"><span>YouTube</span><span class="open">Openen ↗</span></span></button>
+</div>
+<div class="input-heading"><h2>HDMI-ingangen</h2><span>Kies je aangesloten apparaat</span></div>
+<div class="inputs" id="inputs"><p>HDMI-ingangen ophalen…</p></div>
+</div>
+<footer><span>← → kiezen <b>OK</b> openen <span class="back">Terug</span> terug</span><span id="notice" role="status" aria-live="polite">SamsungTVHome</span></footer>
+</main>
+<section id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden><div class="panel-inner"><div class="panel-head"><h2 id="panel-title">Achtergrond kiezen</h2><button id="close">Sluiten ×</button></div><p id="panel-description">Foto’s uit CleanFrame</p><div id="gallery"></div></div></section>
+</div>
+<script src="model.js"></script><script src="main.js"></script>
+</body></html>

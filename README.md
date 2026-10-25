@@ -1,40 +1,43 @@
 # SamsungTVHome
 
-Een rustig startscherm met Netflix, Prime Video, YouTube en HDMI.
+Een rustig startscherm voor Samsung QE75Q7FNA (Tizen 4.0, firmware T-KTM2DEUC-1360.0).
 
-Doeltoestel: Samsung QE75Q7FNA, firmware T-KTM2DEUC-1360.0 (door gebruiker opgegeven). Doelplatform Tizen 4.0. Geïnstalleerd op het toestel. YouTube, Prime Video en de ingebouwde Netflix-startoptie zijn door de gebruiker bevestigd. De nieuwste HDMI-overdracht is verbeterd volgens de gebruiker; verdere praktijktests blijven relevant.
+## Versie 0.2.0
 
-## Voorbeeld
+- Het gezamenlijk gekozen foto-ontwerp: kleine klok en datum, vijf apptegels per rij, HDMI apart.
+- Netflix, Prime Video en YouTube openen direct via de op dit toestel vastgestelde app-ID's.
+- Alle apps leest geïnstalleerde apps uit en filtert systeemonderdelen en dubbele Netflix/YouTube-vermeldingen. Filtering blijft op het toestel te controleren.
+- Favorieten toevoegen, verbergen en ordenen. Verbergen verwijdert de app niet van de tv. Minimaal één en maximaal dertig favorieten.
+- Vijftien lokale achtergrondfoto's, verduistering en beperkte beweging. Voorkeuren blijven lokaal bewaard.
+- HDMI toont uitsluitend door de tv gerapporteerde aangesloten ingangen en opent de gekozen bron met de ingebouwde tv-viewer.
+- Geen advertenties of externe downloads in het startscherm; advertenties binnen andere apps worden niet geblokkeerd.
 
-Open app/index.html in een browser. Gebruik pijltjestoetsen en Enter; Escape gaat terug. HDMI toont voorbeeldingangen. Er zijn geen externe downloads nodig.
+## Bediening
 
-## Op de tv
+Pijltjes verplaatsen de focus. OK opent of past een keuze toe. Terug sluit één paneel; op Home sluit Terug de app. Alle apps > kies een app > toevoegen/verwijderen. Instellingen > Apps op startscherm regelt de volgorde. Fotokeuze wordt pas toegepast nadat het bestand geladen en de voorkeur opgeslagen is; Terug annuleert een nog lopende fotokeuze.
 
-Netflix, Prime Video en YouTube starten direct via de op dit toestel vastgestelde app-ID’s. HDMI vraagt de aangesloten ingangen op, selecteert de gekozen bron en opent de ingebouwde tv-weergave. Terug op het startscherm sluit de app.
+## Bron en ontwerp
 
-Installatie vereist Samsung Developer Mode, Tizen Studio met TV-tools, eigen Samsung-certificaten en een ondertekend .wgt-pakket. Gebruik een eigen app-identiteit voordat je een definitieve installatie maakt. De meegeleverde identiteit is een ontwikkelvoorbeeld.
+- app/ is de echte Tizen-app; app/config.xml bewaart identiteit STVHome001.Home, pakket STVHome001 en minimumversie 4.0.
+- design/ is het afzonderlijke browserontwerp, met voorbeeldgegevens.
+- tests/model.test.cjs test appdetectie, opgeslagen favorieten en HDMI-selectie. Uitvoeren: node --test tests/model.test.cjs.
+- [Ontwerpinventaris](docs/design-inventory.md).
+- [Assets, bronrevisie en licenties](app/ASSET_CREDITS.md). CleanFrame is de bron van publieke foto's, Manrope en iconen; Flix Home is een ontwerp- en gedragsreferentie. Geen commerciële Pangram-fonts gebruikt.
 
-Test eerst installatie, pijltjes/OK/Terug, elke streamingapp, terugkeer vanuit een app, HDMI-beeld/geluid en terugkeer uit HDMI. Compatibiliteit en machtigingen moeten op de echte tv worden bevestigd.
+## Installatie en teststatus
 
-Deze versie verwijdert geen systeemapps, wijzigt geen firmware, blokkeert geen advertenties binnen streamingapps en verandert de Home-knop of het opstartgedrag niet. Die mogelijkheden worden afzonderlijk onderzocht na de basistest.
+Gebruik officiële Tizen-tools en eigen Samsung-certificaten. Werk de bestaande installatie bij met hetzelfde author-certificaat; uninstall verwijdert mogelijk voorkeuren. Certificaten en ondertekende pakketten blijven privé.
 
-## Referentie en bronnen
+De werkende appstart en eerdere HDMI-versie zijn door de gebruiker bevestigd. Voor 0.2.0 zijn acht modeltests en achttien browserchecks met nagebootste tv-API's geslaagd, en de vormgeving is op 1920×1080 gecontroleerd. Dit bewijst geen correcte rendering of bediening op de fysieke tv; zie [praktijktests](docs/release-0.2.0.md).
 
-Geïnspireerd door het rustige startscherm en de gefaseerde installatie van [CleanFrame](https://github.com/nthnclrk/CleanFrame). Deze eerste versie is zelfstandig geschreven en neemt geen CleanFrame-code, foto's, fonts of logo's over. CleanFrame vereist momenteel Tizen 6.5; dit project gebruikt een kleinere basis gericht op Tizen 4.0.
+## Automatisch starten blijft uit
 
-- [Samsung modelgroepen](https://developer.samsung.com/smarttv/develop/specifications/tv-model-groups.html)
-- [Application API](https://developer.samsung.com/smarttv/develop/api-references/tizen-web-device-api-references/application-api.html)
-- [TVWindow API](https://developer.samsung.com/smarttv/develop/api-references/tizen-web-device-api-references/tvwindow-api.html)
-- [Certificaten](https://developer.samsung.com/smarttv/develop/getting-started/setting-up-sdk/creating-certificates.html)
+Er is geen service of on-boot-registratie in de app. Home-toewijzing en tv-opstartinstellingen zijn niet gewijzigd. De aparte pc-helper staat uit en is niet ingepland.
 
-Appnamen zijn merken van hun respectieve eigenaren. Geen affiliatie met Samsung of streamingdiensten.
+- [Pc-opstarthelper en beperkingen](docs/startup.md)
+- [Native onderzoek](docs/native-startup-research.md)
+- [Uitgesteld onderzoek naar een tv-achtergrondservice](docs/tv-service-followup.md)
 
 ## Privégegevens
 
-Bewaar certificaten, sleutels, apparaat-ID's, netwerkinformatie en foto's van toestelgegevens buiten de publieke repository.
-
-## Automatisch starten
-
-Een aparte pc-helper is voorbereid, **standaard uitgeschakeld**. Hij is niet gestart, niet ingepland en niet op de tv geïnstalleerd. De Home-knop en tv-opstartinstellingen zijn niet gewijzigd. Zie [onderzoek, beperkingen en tests](docs/startup.md).
-
-Vervolgonderzoek zonder pc: [achtergrondservice op de tv](docs/tv-service-followup.md). Dit onderzoek is uitgesteld terwijl we de app verbeteren; activering blijft apart toegestaan te worden.
+Geen certificaten, wachtwoorden, apparaat-ID's, netwerkinformatie of toestelgegevens in de publieke repository. Herstelkopieën en testprofielen blijven in de genegeerde .local/ map.
