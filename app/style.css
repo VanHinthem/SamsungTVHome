@@ -82,3 +82,5 @@ button:disabled{opacity:.3;cursor:default}.hide-app{background:transparent;color
 .app.moving{box-shadow:0 0 0 5px #e5c878;transform:scale(1.04)}.settings-content input{background:#182e32;color:#fff;border:1px solid #648180;border-radius:10px;padding:16px;font:inherit;width:310px}.settings-content input:focus{outline:3px solid #eee9da}.setting-row label{min-width:100px}
 
 .rotation-choices{flex-wrap:wrap;margin-bottom:22px}.rotation-choices button{margin-bottom:12px;font-size:15px;padding:14px 17px}
+
+.undo-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;margin-top:24px;background:#203a3e;border:1px solid #4b6868;border-radius:12px}.undo-bar span{margin-right:24px;font-size:18px}

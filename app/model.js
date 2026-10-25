@@ -97,5 +97,6 @@
     if(index<0||index>=result.length||next<0||next>=result.length)return result;
     var item=result[index];result[index]=result[next];result[next]=item;return result;
   }
-  return {artworkSources:artworkSources,iconPath:iconPath,known:known,defaults:defaults,normalize:normalize,discover:discover,hdmi:hdmi,move:move};
+  function restoreFavorite(items,removed){if(!removed||typeof removed.id!=='string'||items.indexOf(removed.id)>=0||items.length>=30)return null;var result=items.slice();result.splice(Math.max(0,Math.min(result.length,removed.index)),0,removed.id);return result;}
+  return {restoreFavorite:restoreFavorite,artworkSources:artworkSources,iconPath:iconPath,known:known,defaults:defaults,normalize:normalize,discover:discover,hdmi:hdmi,move:move};
 }));

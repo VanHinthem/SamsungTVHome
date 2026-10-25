@@ -68,3 +68,5 @@ test('HDMI names migrate safely and stay bounded to real ports',()=>{
 });
 
 test('photo rotation defaults to fixed and accepts only supported choices',()=>{assert.equal(m.normalize({}).rotation,0);for(const mode of [0,'start',5,15,60])assert.equal(m.normalize({rotation:mode}).rotation,mode);for(const mode of ['5',true,-1,2,null])assert.equal(m.normalize({rotation:mode}).rotation,0);});
+
+test('undo restores the removed app at its original position without discarding other changes',()=>{assert.deepEqual(m.restoreFavorite(['a','c','new'],{id:'b',index:1}),['a','b','c','new']);assert.deepEqual(m.restoreFavorite(['a'],{id:'z',index:8}),['a','z']);assert.deepEqual(m.restoreFavorite(['b'],{id:'a',index:0}),['a','b']);assert.equal(m.restoreFavorite(['a'],{id:'a',index:0}),null);assert.equal(m.restoreFavorite(Array.from({length:30},(_,i)=>String(i)),{id:'extra',index:1}),null);});
