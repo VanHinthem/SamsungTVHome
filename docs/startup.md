@@ -50,3 +50,7 @@ Native Home vereist een apart compatibiliteitsonderzoek, oorspronkelijke typed s
 - [Samsung: prelaunching op 2016–2018](https://developer.samsung.com/smarttv/develop/guides/fundamentals/prelaunching-applications.html)
 - [Samsung: Smart Hub en Autorun Last App](https://www.samsung.com/ae/support/tv-audio-video/how-to-activate-or-deactivate-the-smart-hub/)
 - [Samsung: officiële CLI voor app-start](https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/command-line-interface.html)
+
+## Vervolgonderzoek zonder pc
+
+Zie [het firmware-specifieke onderzoek](native-startup-research.md). De huidige CleanFrame-helper kan niet rechtstreeks op dit toestel worden gebruikt; een vaste native opstartroute is nog niet gevalideerd. Geen activering of systeemwijziging uitgevoerd.
