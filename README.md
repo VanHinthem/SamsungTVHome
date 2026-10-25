@@ -2,7 +2,7 @@
 
 Een rustig startscherm met Netflix, Prime Video, YouTube en HDMI.
 
-Doeltoestel: Samsung QE75Q7FNA, firmware T-KTM2DEUC-1360.0 (door gebruiker opgegeven). Doelplatform Tizen 4.0. **Nog niet getest of geïnstalleerd op het toestel.**
+Doeltoestel: Samsung QE75Q7FNA, firmware T-KTM2DEUC-1360.0 (door gebruiker opgegeven). Doelplatform Tizen 4.0. Geïnstalleerd op het toestel. YouTube, Prime Video en de ingebouwde Netflix-startoptie zijn door de gebruiker bevestigd. De nieuwste HDMI-overdracht is verbeterd volgens de gebruiker; verdere praktijktests blijven relevant.
 
 ## Voorbeeld
 
@@ -10,7 +10,7 @@ Open app/index.html in een browser. Gebruik pijltjestoetsen en Enter; Escape gaa
 
 ## Op de tv
 
-De app zoekt de geïnstalleerde streamingapps op naam en opent alleen bij één match. HDMI vraagt de aangesloten ingangen op en toont de gekozen bron via TVWindow. Terug verlaat HDMI-weergave; Terug op het startscherm sluit de app.
+Netflix, Prime Video en YouTube starten direct via de op dit toestel vastgestelde app-ID’s. HDMI vraagt de aangesloten ingangen op, selecteert de gekozen bron en opent de ingebouwde tv-weergave. Terug op het startscherm sluit de app.
 
 Installatie vereist Samsung Developer Mode, Tizen Studio met TV-tools, eigen Samsung-certificaten en een ondertekend .wgt-pakket. Gebruik een eigen app-identiteit voordat je een definitieve installatie maakt. De meegeleverde identiteit is een ontwikkelvoorbeeld.
 
@@ -32,3 +32,7 @@ Appnamen zijn merken van hun respectieve eigenaren. Geen affiliatie met Samsung 
 ## Privégegevens
 
 Bewaar certificaten, sleutels, apparaat-ID's, netwerkinformatie en foto's van toestelgegevens buiten de publieke repository.
+
+## Automatisch starten
+
+Een aparte pc-helper is voorbereid, **standaard uitgeschakeld**. Hij is niet gestart, niet ingepland en niet op de tv geïnstalleerd. De Home-knop en tv-opstartinstellingen zijn niet gewijzigd. Zie [onderzoek, beperkingen en tests](docs/startup.md).
