@@ -35,3 +35,15 @@ test('TV utilities excluded and duplicate service keeps the favorite ID',()=>{
  const apps=m.discover([{id:'OjBS9h5ZF9.emanual',name:'e-Manual'},{id:'jLU2jKvbyN.PrivacyChoices',name:'PrivacyChoices'},{id:'w2VwCK465D.OTApp',name:'Samsung TV Plus Privacy Settings'},{id:'ug-ttxUG-efl',name:'ug-ttxUG-efl'},{id:'old.Pathe',name:'Pathe Thuis'},{id:'new.Pathe',name:'Pathé Thuis'}],['old.Pathe']);
  assert.deepEqual(apps.map(a=>a.id),['old.Pathe']);
 });
+
+test('original local icon retained without changing verified launch identity',()=>{
+ const apps=m.discover([{id:'org.tizen.netflix-app',name:'Netflix',iconPath:'/opt/apps/netflix.png'},{id:'user.app',name:'Other',iconPath:'file:///opt/apps/other.png'}]);
+ assert.equal(apps.find(a=>a.name==='Netflix').id,'org.tizen.netflix-app');assert.equal(apps.find(a=>a.name==='Netflix').iconPath,'/opt/apps/netflix.png');assert.equal(apps.find(a=>a.name==='Other').iconPath,'file:///opt/apps/other.png');
+});
+test('store alias can supply artwork while native Netflix remains launch target',()=>{
+ const apps=m.discover([{id:'org.tizen.netflix-app',name:'Netflix'},{id:'RN1MCdNq8t.Netflix',name:'Netflix',iconPath:'/opt/apps/store-netflix.png'}]);
+ assert.equal(apps.length,1);assert.equal(apps[0].id,'org.tizen.netflix-app');assert.equal(apps[0].iconPath,'/opt/apps/store-netflix.png');
+});
+test('icon sources cannot trigger remote downloads or script URLs',()=>{
+ for(const path of ['https://example.com/icon.png','//example.com/icon.png','javascript:alert(1)','data:image/png;base64,AAAA',null])assert.equal(m.iconPath(path),null);
+});

@@ -25,7 +25,14 @@ function save(next){
 function copy(){return JSON.parse(JSON.stringify(prefs));}
 function apply(){document.getElementById('wallpaper').src=base+'wallpapers/'+prefs.photo+'.jpg';document.querySelector('.shade').style.background='linear-gradient(180deg,rgba(4,12,16,.25),rgba(4,12,16,'+(prefs.dim/100)+') 62%,rgba(4,12,16,.88))';document.getElementById('scene').classList.toggle('no-motion',!prefs.motion);}
 function button(text,fn,cls){var b=document.createElement('button');b.type='button';b.textContent=text;if(cls)b.className=cls;b.onclick=fn;return b;}
-function mark(app){if(app.icon){var img=document.createElement('img');img.src=base+'icons/'+app.icon+'.svg';img.alt='';img.className='brand-icon '+app.icon;return img;}var s=document.createElement('span');s.className='initials';s.textContent=app.name.slice(0,3).toUpperCase();return s;}
+function mark(app){
+ var holder=document.createElement('span');holder.className='artwork';
+ var fallback;if(app.icon){fallback=document.createElement('img');fallback.src=base+'icons/'+app.icon+'.svg';fallback.alt='';fallback.className='brand-icon '+app.icon;}else{fallback=document.createElement('span');fallback.className='initials';fallback.textContent=app.name.slice(0,3).toUpperCase();}
+ holder.appendChild(fallback);
+ var path=model.iconPath(app.iconPath);
+ if(path){var native=document.createElement('img');native.alt='';native.className='brand-icon native-icon';native.onload=function(){holder.textContent='';holder.appendChild(native);};native.onerror=function(){/* Keep the bundled mark or initials. */};native.src=path.charAt(0)==='/'?'file://'+path:path;}
+ return holder;
+}
 function renderHome(){var row=document.querySelector('.apps');row.textContent='';prefs.favorites.forEach(function(id,i){var a=byId(id),b=button('',function(){launchApp(a.id,a.name);lastHomeId=a.id;},'app');b.setAttribute('aria-label',a.name);b.disabled=!panel.hidden;var logo=document.createElement('span');logo.className='logo';logo.appendChild(mark(a));var bottom=document.createElement('span');bottom.className='app-bottom';bottom.textContent=a.name;b.appendChild(logo);b.appendChild(bottom);row.appendChild(b);});}
 function enter(view){stack.push(JSON.parse(JSON.stringify(state)));state.view=view;token++;renderPanel();}
 function close(){token++;panel.hidden=true;Array.prototype.forEach.call(document.querySelectorAll('main button'),function(b){b.disabled=false;});document.querySelector('main').removeAttribute('aria-hidden');state.view='home';stack=[];renderHome();if(lastButton&&document.contains(lastButton))lastButton.focus();}
@@ -61,6 +68,7 @@ function refreshCatalog(){
  try{tizen.application.getAppsInfo(function(installed){
   catalog=model.discover(installed,prefs.favorites);catalogAt=Date.now();
   catalog.forEach(function(a){savedApps[a.id]=a;});
+  Array.prototype.forEach.call(document.querySelectorAll('main .app'),function(button,i){var logo=button.querySelector('.logo');if(logo){logo.textContent='';logo.appendChild(mark(byId(prefs.favorites[i])));}});
   if(state.view==='apps'&&!panel.hidden)renderPanel();
  },function(e){catalogAt=0;tell('Apps ophalen niet gelukt. Sluit en open Alle apps om opnieuw te proberen.');});}
  catch(e){tell('Apps ophalen niet gelukt: '+(e.message||e.name));}

@@ -11,6 +11,12 @@
     {id:'9Ur5IzDKqV.TizenYouTube',name:'YouTube',icon:'youtube',aliases:['com.samsung.tv.cobalt-yt']}
   ];
   var photoIds=['misty','cove','forest','valley','night','peaks','bridge','ridge','golden','summit','goldcoast','sydney','amber','mint','alpine'];
+  function iconPath(value){
+    if(typeof value!=='string'||value.length>2048||/[\x00-\x1f]/.test(value))return null;
+    if(value.charAt(0)==='/'&&value.charAt(1)!=='/')return value;
+    if(/^file:\/\/\//i.test(value)||/^wgt-package:\/\//i.test(value))return value;
+    return null;
+  }
   function defaults(){return {photo:'valley',favorites:known.map(function(a){return {id:a.id,name:a.name,icon:a.icon};}),dim:45,motion:true};}
   function normalize(raw){
     var result=defaults();
@@ -34,8 +40,8 @@
     preferredIds=preferredIds||[];
     var result=[],skip=Object.create(null),seen=Object.create(null);
     known.forEach(function(k){
-      var present=installed.some(function(a){return a.id===k.id;});
-      if(present)result.push({id:k.id,name:k.name,icon:k.icon});
+      var present=installed.filter(function(a){return a.id===k.id;})[0];
+      if(present){var path=iconPath(present.iconPath);if(!path){k.aliases.some(function(id){var alias=installed.filter(function(a){return a.id===id;})[0];path=alias&&iconPath(alias.iconPath);return !!path;});}result.push({id:k.id,name:k.name,icon:k.icon,iconPath:path||null});}
       skip[k.id]=true;k.aliases.forEach(function(id){skip[id]=true;});
     });
     installed.forEach(function(a){
@@ -47,7 +53,7 @@
       if(/^(org\.|com\.samsung\.|adplatform\.|lib-)/i.test(a.id)&&a.id!=='org.tizen.browser')return;
       if(a.id==='STVHome001.Home')return;
       seen[a.id]=true;
-      result.push({id:a.id,name:name.slice(0,80),icon:null});
+      result.push({id:a.id,name:name.slice(0,80),icon:null,iconPath:iconPath(a.iconPath)});
     });
     var names=Object.create(null);
     result.forEach(function(a){var key=a.name.toLowerCase().replace(/é/g,'e').replace(/[^a-z0-9]/g,'');var previous=names[key];if(!previous||preferredIds.indexOf(a.id)>=0&&preferredIds.indexOf(previous.id)<0)names[key]=a;});
@@ -67,5 +73,5 @@
     if(index<0||index>=result.length||next<0||next>=result.length)return result;
     var item=result[index];result[index]=result[next];result[next]=item;return result;
   }
-  return {known:known,defaults:defaults,normalize:normalize,discover:discover,hdmi:hdmi,move:move};
+  return {iconPath:iconPath,known:known,defaults:defaults,normalize:normalize,discover:discover,hdmi:hdmi,move:move};
 }));
