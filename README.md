@@ -36,3 +36,5 @@ Bewaar certificaten, sleutels, apparaat-ID's, netwerkinformatie en foto's van to
 ## Automatisch starten
 
 Een aparte pc-helper is voorbereid, **standaard uitgeschakeld**. Hij is niet gestart, niet ingepland en niet op de tv geïnstalleerd. De Home-knop en tv-opstartinstellingen zijn niet gewijzigd. Zie [onderzoek, beperkingen en tests](docs/startup.md).
+
+Vervolgonderzoek zonder pc: [achtergrondservice op de tv](docs/tv-service-followup.md). Dit onderzoek is uitgesteld terwijl we de app verbeteren; activering blijft apart toegestaan te worden.
