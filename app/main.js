@@ -30,7 +30,7 @@ function mark(app){
  var fallback;if(app.icon){fallback=document.createElement('img');fallback.src=base+'icons/'+app.icon+'.svg';fallback.alt='';fallback.className='brand-icon '+app.icon;}else{fallback=document.createElement('span');fallback.className='initials';fallback.textContent=app.name.slice(0,3).toUpperCase();}
  holder.appendChild(fallback);
  var candidates=model.artworkSources(app),index=0;
- function tryNext(){if(index>=candidates.length)return;var path=candidates[index++],native=document.createElement('img');native.alt='';native.className='brand-icon native-icon samsung-artwork';native.onload=function(){holder.textContent='';holder.appendChild(native);};native.onerror=tryNext;native.src=path.charAt(0)==='/'?'file://'+path:path;}
+ function tryNext(){if(index>=candidates.length)return;var path=candidates[index++],native=document.createElement('img');native.alt='';native.className='brand-icon native-icon samsung-artwork';native.onload=function(){holder.textContent='';holder.appendChild(native);};native.onerror=tryNext;if(window.TVArtwork&&window.TVArtwork.allowed(path)){window.TVArtwork.load(path,function(uri){native.src=uri;},tryNext);}else{native.src=path.charAt(0)==='/'?'file://'+path:path;}}
  tryNext();
  return holder;
 }
