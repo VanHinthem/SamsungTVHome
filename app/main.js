@@ -2,9 +2,9 @@
 (function () {
   'use strict';
   var apps = [
-    {name: 'Netflix', key: 'netflix', match: /netflix/i},
+    {name: 'Netflix', key: 'netflix', id: 'RN1MCdNq8t.Netflix', match: /^netflix$/i},
     {name: 'Prime Video', key: 'prime', match: /prime.?video|amazon.*video|amazon instant/i},
-    {name: 'YouTube', key: 'youtube', match: /youtube/i},
+    {name: 'YouTube', key: 'youtube', id: '9Ur5IzDKqV.TizenYouTube', match: /^youtube$/i},
     {name: 'HDMI', key: 'hdmi'}
   ];
   var tiles = document.getElementById('tiles');
@@ -45,9 +45,12 @@
     try {
       tizen.application.getAppsInfo(function (installed) {
         var matches = [];
+        var preferred = null;
         for (var i = 0; i < installed.length; i++) {
+          if (app.id && installed[i].id === app.id) { preferred = installed[i]; }
           if (app.match.test(installed[i].name)) { matches.push(installed[i]); }
         }
+        if (preferred) { matches = [preferred]; }
         if (matches.length !== 1) {
           busy = false;
           message(matches.length ? 'Meerdere apps gevonden voor ' + app.name + '; configuratie nodig.' : app.name + ' niet gevonden. Installeer de app eerst via Samsung Apps.');
@@ -89,7 +92,7 @@
         try {
           tizen.tvwindow.show(function () {
             busy = false; mode = 'video'; document.body.className = 'video';
-          }, fail, ['0px', '0px', '100%', '100%'], 'MAIN', 'BEHIND');
+          }, fail, ['0px', '0px', '100%', '100%'], 'MAIN', 'FRONT');
         } catch (error) { fail(error); }
       }, fail);
     } catch (error) { fail(error); }
