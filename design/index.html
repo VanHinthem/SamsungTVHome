@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SamsungTVHome · Ontwerp C</title><link rel="stylesheet" href="preview.css"></head>
+<body>
+<div class="scene" id="scene">
+<img class="wallpaper" id="wallpaper" src="assets/cleanframe/app/assets/wallpapers/valley.jpg" alt="">
+<div class="shade"></div>
+<main>
+<header><div class="time"><time>20:38</time><span>Zondag 25 oktober</span></div><nav aria-label="Hulpmiddelen"><button data-panel="apps"><img src="assets/cleanframe/app/assets/icons/apps.svg" alt="">Alle apps</button><button data-panel="settings"><img src="assets/cleanframe/app/assets/icons/settings.svg" alt="">Instellingen</button></nav></header>
+<div class="content">
+<div class="section-heading"><h1>Jouw avond.</h1><span>APPS</span></div>
+<div class="apps" aria-label="Favoriete apps">
+<button class="app selected" data-app="Netflix"><span class="logo"><img class="netflix" src="assets/cleanframe/app/assets/icons/netflix.svg" alt=""></span><span class="app-bottom"><span>Netflix</span><span class="open">Openen ↗</span></span></button>
+<button class="app" data-app="Prime Video"><span class="logo"><img class="prime" src="assets/cleanframe/app/assets/icons/primevideo.svg" alt=""></span><span class="app-bottom"><span>Prime Video</span><span class="open">Openen ↗</span></span></button>
+<button class="app" data-app="YouTube"><span class="logo"><img class="youtube" src="assets/cleanframe/app/assets/icons/youtube.svg" alt=""></span><span class="app-bottom"><span>YouTube</span><span class="open">Openen ↗</span></span></button>
+</div>
+<div class="input-heading"><h2>HDMI-ingangen</h2><span>Kies je aangesloten apparaat</span></div>
+<div class="inputs">
+<button data-input="HDMI 1"><span class="port">↳</span><span>HDMI 1<small>Aangesloten</small></span><span class="dot"></span></button>
+<button data-input="HDMI 2"><span class="port">↳</span><span>HDMI 2<small>Aangesloten</small></span><span class="dot"></span></button>
+</div>
+</div>
+<footer><span>← → kiezen <b>OK</b> openen <span class="back">Terug</span> terug</span><span id="notice">SamsungTVHome · ontwerpvoorbeeld</span></footer>
+</main>
+<section id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden><div class="panel-inner"><div class="panel-head"><h2 id="panel-title">Achtergrond kiezen</h2><button id="close">Sluiten ×</button></div><p id="panel-description">Foto’s uit CleanFrame</p><div id="gallery"></div></div></section>
+</div>
+<script src="preview.js"></script>
+</body></html>

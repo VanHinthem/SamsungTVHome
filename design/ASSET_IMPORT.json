@@ -1,0 +1,227 @@
+{
+  "repository": "https://github.com/nthnclrk/CleanFrame",
+  "revision": "fa537d1892b71d2de2bf94c24cbff3812e9f70d5",
+  "imported": "2026-10-25",
+  "files": [
+    {
+      "path": "assets/cleanframe/LICENSE",
+      "upstream": "LICENSE",
+      "git_blob_sha": "6c56a6bd4918b63fba4fffcf681bf3207d484afc"
+    },
+    {
+      "path": "assets/cleanframe/THIRD_PARTY_NOTICES.md",
+      "upstream": "THIRD_PARTY_NOTICES.md",
+      "git_blob_sha": "7a2f40afbceea92f59aca6ce387c66f93820a161"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/ADDITIONAL-SOURCES.json",
+      "upstream": "app/assets/icons/ADDITIONAL-SOURCES.json",
+      "git_blob_sha": "815d8a4cd5a43eaf6ce26ce5bbefea978d9439eb"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/SIMPLE-ICONS-LICENSE.txt",
+      "upstream": "app/assets/icons/SIMPLE-ICONS-LICENSE.txt",
+      "git_blob_sha": "70d4a7b6740c5d9b594ff2fc27d3ea7e89413185"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/SOURCES.json",
+      "upstream": "app/assets/icons/SOURCES.json",
+      "git_blob_sha": "33ac9c739a74b4f22131ff3dab4e96e30ed8655c"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/apps.svg",
+      "upstream": "app/assets/icons/apps.svg",
+      "git_blob_sha": "dd2572743c41b83d3f3630d07c956be202d6af35"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/netflix.svg",
+      "upstream": "app/assets/icons/netflix.svg",
+      "git_blob_sha": "825c06ec3fd08db837eb4890bc56dedc0be71ed7"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/primevideo.svg",
+      "upstream": "app/assets/icons/primevideo.svg",
+      "git_blob_sha": "d1a230dddb35094c679131f6b5c24936b75575f6"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/settings.svg",
+      "upstream": "app/assets/icons/settings.svg",
+      "git_blob_sha": "0ac28e3045af09df972ea8414df91b00127c0e5b"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/icons/youtube.svg",
+      "upstream": "app/assets/icons/youtube.svg",
+      "git_blob_sha": "c055ecbbd5fb009e5b3eb66093236119c523cb08"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/manrope-OFL.txt",
+      "upstream": "app/assets/manrope-OFL.txt",
+      "git_blob_sha": "793d053a8ff58d7185913fc7a33903b58a9826ba"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/manrope.woff2",
+      "upstream": "app/assets/manrope.woff2",
+      "git_blob_sha": "9d7abb17d323bff647995a94222b92b26a0fc93d"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/SOURCES.json",
+      "upstream": "app/assets/wallpapers/SOURCES.json",
+      "git_blob_sha": "56c5d2168627d8b78a53e77997c98ee51bb7e60b"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/alpine-thumb.jpg",
+      "upstream": "app/assets/wallpapers/alpine-thumb.jpg",
+      "git_blob_sha": "9c7a5029ea0f6f5fea0f405fa9ea85c03931dfbc"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/alpine.jpg",
+      "upstream": "app/assets/wallpapers/alpine.jpg",
+      "git_blob_sha": "e79e4b14ef0b35a36e9dbc2e643f575138a45213"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/amber-thumb.jpg",
+      "upstream": "app/assets/wallpapers/amber-thumb.jpg",
+      "git_blob_sha": "773c25ccc35531055b77d49c9a3df2c6bea3aa0c"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/amber.jpg",
+      "upstream": "app/assets/wallpapers/amber.jpg",
+      "git_blob_sha": "98893e4976c609a102ffe8f066db03173beb04b0"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/bridge-thumb.jpg",
+      "upstream": "app/assets/wallpapers/bridge-thumb.jpg",
+      "git_blob_sha": "3efa1bf14f221e15a25074cc19798751799bc7fa"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/bridge.jpg",
+      "upstream": "app/assets/wallpapers/bridge.jpg",
+      "git_blob_sha": "1c8dfe2e8f08699f1e9fe365cd705625bd3c7319"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/cove-thumb.jpg",
+      "upstream": "app/assets/wallpapers/cove-thumb.jpg",
+      "git_blob_sha": "e37603b01fc98c95092c33c151408f0dc25ef2af"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/cove.jpg",
+      "upstream": "app/assets/wallpapers/cove.jpg",
+      "git_blob_sha": "a25b703475f453ae3b8bef328985d8f35feaeb69"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/forest-thumb.jpg",
+      "upstream": "app/assets/wallpapers/forest-thumb.jpg",
+      "git_blob_sha": "3d4956d4751f897188c348978c8a0daf5402a945"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/forest.jpg",
+      "upstream": "app/assets/wallpapers/forest.jpg",
+      "git_blob_sha": "75591ec0b524b1a52b5fea4f2205fc4d8954de45"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/goldcoast-thumb.jpg",
+      "upstream": "app/assets/wallpapers/goldcoast-thumb.jpg",
+      "git_blob_sha": "9a5c2dfed79380fbbf0eb1c251f9ee6b3af604ed"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/goldcoast.jpg",
+      "upstream": "app/assets/wallpapers/goldcoast.jpg",
+      "git_blob_sha": "7a60a8096be194aad3338a58cf873d050a6ab886"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/golden-thumb.jpg",
+      "upstream": "app/assets/wallpapers/golden-thumb.jpg",
+      "git_blob_sha": "5fccaf7220d68cf644df7a2357752cccd33a58d0"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/golden.jpg",
+      "upstream": "app/assets/wallpapers/golden.jpg",
+      "git_blob_sha": "a06f80dec408127528b98d44e5c06a24fd4c40df"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/mint-thumb.jpg",
+      "upstream": "app/assets/wallpapers/mint-thumb.jpg",
+      "git_blob_sha": "1767cc2c6ca50cef346bd3ec43b1dd7e374cc382"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/mint.jpg",
+      "upstream": "app/assets/wallpapers/mint.jpg",
+      "git_blob_sha": "65a7e7e6b396eb0e238aa8a432890c04978fd766"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/misty-thumb.jpg",
+      "upstream": "app/assets/wallpapers/misty-thumb.jpg",
+      "git_blob_sha": "1344584c398f9c973f87024f179cc0ca1b1682ca"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/misty.jpg",
+      "upstream": "app/assets/wallpapers/misty.jpg",
+      "git_blob_sha": "32438556b7d852e977a8208fc4544ef148205d90"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/night-thumb.jpg",
+      "upstream": "app/assets/wallpapers/night-thumb.jpg",
+      "git_blob_sha": "b19a9c7d14b73508778019159fde148d5cab93a6"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/night.jpg",
+      "upstream": "app/assets/wallpapers/night.jpg",
+      "git_blob_sha": "646a0c090bda59b99fc3256af773bfab9c3ebda0"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/peaks-thumb.jpg",
+      "upstream": "app/assets/wallpapers/peaks-thumb.jpg",
+      "git_blob_sha": "abda482a9c11663a950dd0c7d441cee3917b8f6c"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/peaks.jpg",
+      "upstream": "app/assets/wallpapers/peaks.jpg",
+      "git_blob_sha": "c171cc1dc8da73df40ff705cbda0d4376421b7a6"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/ridge-thumb.jpg",
+      "upstream": "app/assets/wallpapers/ridge-thumb.jpg",
+      "git_blob_sha": "2131430d4d462ff6cb75d8a10bc64eeb23cfbc14"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/ridge.jpg",
+      "upstream": "app/assets/wallpapers/ridge.jpg",
+      "git_blob_sha": "a236f555219626a0b317767c4447f873cd2c6791"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/summit-thumb.jpg",
+      "upstream": "app/assets/wallpapers/summit-thumb.jpg",
+      "git_blob_sha": "2d96d03ba5aa5e29f9eeb8fe95d9cf91104c80e7"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/summit.jpg",
+      "upstream": "app/assets/wallpapers/summit.jpg",
+      "git_blob_sha": "91fd7a2616ac554917d27e0c4e4cfa26d0ee7f8a"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/sydney-thumb.jpg",
+      "upstream": "app/assets/wallpapers/sydney-thumb.jpg",
+      "git_blob_sha": "919cd30a13a942ccd5c1bf2b861388bb40b0a7c3"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/sydney.jpg",
+      "upstream": "app/assets/wallpapers/sydney.jpg",
+      "git_blob_sha": "602783068c24535eda2fb3f1d4e85c452e84d3e7"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/valley-thumb.jpg",
+      "upstream": "app/assets/wallpapers/valley-thumb.jpg",
+      "git_blob_sha": "9ca7cef77bfa3f48bf21aa960e716bdd4b28e6be"
+    },
+    {
+      "path": "assets/cleanframe/app/assets/wallpapers/valley.jpg",
+      "upstream": "app/assets/wallpapers/valley.jpg",
+      "git_blob_sha": "d8d1a771aa43fe064c99e891d8605581a56f8185"
+    },
+    {
+      "path": "assets/cleanframe/docs/asset-sources.md",
+      "upstream": "docs/asset-sources.md",
+      "git_blob_sha": "2e9b3ffef6cbadbf438e21e9aa808b51b2d6eebb"
+    }
+  ]
+}
