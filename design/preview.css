@@ -6,3 +6,5 @@
 @media(max-width:650px){.apps{flex-wrap:wrap;gap:14px}.app{width:calc((100% - 28px)/3);height:145px}.logo img{max-width:70px}.app-bottom{font-size:13px}}
 
 .apps{flex-wrap:wrap}
+
+.section-heading{justify-content:flex-start}
